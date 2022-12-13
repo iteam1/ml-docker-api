@@ -5,9 +5,9 @@ build docker container for image classification with rest api service
 
 - opencv-python
 - tensorflow
-- flask
-- flask-cors
-- pillow
+- flask `pip3 install flask`
+- flask-cors `pip3 install flask-cors`
+- pillow `pip3 install Pillow`
 
 # deploy docker
 

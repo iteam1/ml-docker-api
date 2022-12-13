@@ -13,8 +13,11 @@ app.config['UPLOAD_FOLDER'] = "static"
 # Load model
 model = load_model(model_file)
 
+@app.route('/',methods =['GET'])
+def home():
+	return "wellcome to ML-server"
 
-@app.route('/', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def index():
 	try:
 		if request.method == 'POST':
