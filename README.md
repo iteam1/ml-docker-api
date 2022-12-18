@@ -1,10 +1,14 @@
 # ml-docker-api
 build docker container for image classification with rest api service
 
+# quick-start
+
+- run ml-server `python3 app.py`
+
 # packages
 
-- opencv-python
-- tensorflow
+- opencv-python (linux ubuntu 18.04) `pip3 install opencv-python==3.2.0.7`
+- tensorflow `pip3 install tensorflow`
 - flask `pip3 install flask`
 - flask-cors `pip3 install flask-cors`
 - pillow `pip3 install Pillow`
