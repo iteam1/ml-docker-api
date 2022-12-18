@@ -33,20 +33,15 @@ There are 3 way to install python-packages in the container
 
 - install python-packages via requirements.txt (not working always)
 
-    RUN pip3 install -r requirements.txt
+      RUN pip3 install -r requirements.txt
 
 - install python-packages via commands
 
-    RUN pip3 install tensorflow
-    RUN pip3 install opencv-python
-    RUN pip3 install flask
-    RUN pip3 install flask-cors
-    RUN pip3 install Pillow
-
-- copy virtual enviroment from local
-
-    COPY . /app
-    RUN source env/bin/activate
+      RUN pip3 install tensorflow
+      RUN pip3 install opencv-python
+      RUN pip3 install flask
+      RUN pip3 install flask-cors
+      RUN pip3 install Pillow
 
 # deploy docker
 
