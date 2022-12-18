@@ -1,7 +1,8 @@
 import requests
 import argparse
 
-url = "http://localhost:8080/predict"
+# url = "http://localhost:8080/predict"
+url = "http://172.17.0.2:8080/predict"
 
 #init parser
 parser = argparse.ArgumentParser(description='post from client image to server')
