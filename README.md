@@ -15,16 +15,18 @@ build docker container for image classification with rest api service
 
 # build docker image
 
-    FROM ubuntu:latest
-    WORKDIR /app
+    FROM ubuntu:latest # download base image
+    WORKDIR /app # create floder inside the container
     RUN apt-get update -y
     RUN apt-get install -y python3-pip python3-dev build-essential hdf5-tools libgl1 libgtk2.0-dev
-    COPY . /app
-    RUN pip3 install -r setup.txt
-    EXPOSE 8080
-    CMD ["python3", "my_api.py"]
+    COPY . /app # copy source into your floder
+    RUN pip3 install -r setup.txt # run setup
+    EXPOSE 8080 # map port
+    CMD ["python3", "my_api.py"] # run server
 
 # deploy docker
+
+- build docker image name `ml-service`: `sudo docker build -t ml-service .`
 
 # references
 
