@@ -6,6 +6,8 @@ from keras.models import load_model
 
 # Config
 model_file = "models/cat_dog_classifier.hdf5"
+width_size = 150
+height_size = 150
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = "static"
@@ -28,9 +30,9 @@ def index():
 				image.save(path_to_save)
 
 				# preprocessing
-				frame = cv2.imread(path_to_save
+				frame = cv2.imread(path_to_save)
 				# Xử lý file
-				frame = cv2.resize(frame, dsize=(150,150))
+				frame = cv2.resize(frame,(width_size,height_size),interpolation=cv2.INTER_AREA)
 				# Convert thành tensor
 				frame = np.expand_dims(frame, axis=0)  # Used for single images [1,w,h]
 				# Đưa vào model
@@ -41,7 +43,7 @@ def index():
 				else:
 					output = "dog"
 
-				return "Prediction" + output + "prob: " + str(prediction_prob)
+				return "Prediction: " + output + " Prob: " + str(prediction_prob)
 		else:
 			return "We only accept POST with image file"
 	except Exception as ex:
