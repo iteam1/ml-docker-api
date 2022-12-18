@@ -26,22 +26,22 @@ def index():
 				# Lưu file
 				path_to_save = os.path.join(app.config['UPLOAD_FOLDER'], image.filename)
 				image.save(path_to_save)
-				frame = cv2.imread(path_to_save)
 
+				# preprocessing
+				frame = cv2.imread(path_to_save
 				# Xử lý file
 				frame = cv2.resize(frame, dsize=(150,150))
 				# Convert thành tensor
-				frame = np.expand_dims(frame, axis=0)  # Used for single images
+				frame = np.expand_dims(frame, axis=0)  # Used for single images [1,w,h]
 				# Đưa vào model
 				prediction_prob = model.predict(frame)[0][0]
-
 				# Xét kết quả
 				if prediction_prob < 0.5: # 0-0.5: cat, else dog
 					output = "cat"
 				else:
 					output = "dog"
 
-				return output
+				return "Prediction" + output + "prob: " + str(prediction_prob)
 		else:
 			return "We only accept POST with image file"
 	except Exception as ex:
